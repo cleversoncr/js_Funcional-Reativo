@@ -18,31 +18,31 @@ const carrinho = [
 ];
 
 
-//nomes
+// nomes
 const getNome = item => item.nome;
 console.log(carrinho.map(getNome));
 
 
-//quantidade * preço
-const getTotal = item => item.qtde * item.preco;
-const totais = carrinho.map(getTotal);
-console.log(totais);
+// //quantidade * preço
+// const getTotal = item => item.qtde * item.preco;
+// const totais = carrinho.map(getTotal);
+// console.log(totais);
 
 
 //Criando um map
-Array.prototype.meuMap = function (fn) {
-  const novoArray = [];
-  for (let i = 0; i < this.length; i++) {
-    novoArray.push(fn(this[i], i, this))
-  }
-  return novoArray;
-};
+// Array.prototype.meuMap = function (fn) {
+//   const novoArray = [];
+//   for (let i = 0; i < this.length; i++) {
+//     novoArray.push(fn(this[i], i, this))
+//   }
+//   return novoArray;
+// };
 
-const getNome = item => item.nome;
-console.log(carrinho.meuMap(getNome));
+// const getNome = item => item.nome;
+// console.log(carrinho.meuMap(getNome));
 
 
-//quantidade * preço
-const getTotal = item => item.qtde * item.preco;
-const totais = carrinho.meuMap(getTotal);
-console.log(totais);
+// //quantidade * preço
+// const getTotal = item => item.qtde * item.preco;
+// const totais = carrinho.meuMap(getTotal);
+// console.log(totais);
