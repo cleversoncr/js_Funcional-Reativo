@@ -6,36 +6,43 @@ const carrinho = [
   { nome: 'Tesoura', qtde: 1, preco: 19.2, fragil: true }
 ];
 
+Array.prototype.meuReduce = function (fn, inicial) {
+  let acc = inicial
+  for (let i = 0; i < this.length; i++) {
+    if (!acc && i === 0) {
+      acc = this[i]
+    } else {
+      acc = fn(acc, this[i], i, this)
+    }
+  }
+  return acc
+};
+
 //filter, map, reduce
 
 //1. Apenas os elementos fagil: true
-const getFragil = item => item.fragil !== false;
-const getItem = item => item.nome;
-
-const produtosTrue = carrinho
-  .filter(getFragil)
-  .map(getItem)
-
-console.log(produtosTrue);
-
-
 //2. qtde * preco -> total
-const getTotal = item => item.qtde * item.preco;
-const somar = (acumulador, elemento) => acumulador + elemento
-
-const totalGeral = carrinho
-  .map(getTotal)
-  .reduce(somar);
-
-console.log(totalGeral);
-
 //3. media dos valores totais
 
-const getTotalProdutos = item => item.qtde * item.preco;
-const mediaTotal = (acumulador, elemento) => (acumulador + elemento) / 2
+const fragil = item => item.fragil;
+const getTotal = item => item.qtde * item.preco;
+const getMedia = (acc, el) => {
+  const novaQtde = acc.qtde + 1
+  const novoTotal = acc.total + el
+  return {
+    qtde: novaQtde,
+    total: novoTotal,
+    media: novoTotal / novaQtde
+  }
+};
 
-const mediaTotalGeral = carrinho
+const mediaInicial = { qtde: 0, total: 0, media: 0 };
+
+const media = carrinho
+  .filter(fragil)
   .map(getTotal)
-  .reduce(mediaTotal);
+  .meuReduce(getMedia, mediaInicial)
+  .media
 
-console.log(mediaTotalGeral);
+
+console.log(`A média é ${media}`);
