@@ -1,0 +1,23 @@
+{
+  "name": "js_funcional-reativo",
+  "version": "1.0.0",
+  "description": "Aprenda a PENSAR como um programador JavaScript e DOMINE o paradigma FUNCIONAL e a programação REATIVA com RxJS!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleversoncr/js_Funcional-Reativo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cleversoncr/js_Funcional-Reativo/issues"
+  },
+  "homepage": "https://github.com/cleversoncr/js_Funcional-Reativo#readme",
+  "dependencies": {
+    "rxjs": "^7.5.4"
+  }
+}
