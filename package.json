@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/cleversoncr/js_Funcional-Reativo#readme",
   "dependencies": {
-    "rxjs": "^7.5.4"
+    "rxjs": "^7.5.4",
+    "xmlhttprequest": "^1.8.0"
   }
 }
